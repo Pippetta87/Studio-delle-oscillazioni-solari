@@ -1,0 +1,35 @@
+\ProvidesPackage{titleT}
+
+\usepackage{titletoc}
+\setcounter{tocdepth}{2}
+\setsecnumdepth{subsection}
+\maxsecnumdepth{subsection}
+
+\usepackage[compact]{titlesec}
+\titleclass{\part}{top}
+
+\titleformat{\part}{\huge\bfseries\centering
+\vspace*{30pt}
+}{\thepart}{10pt}{\huge}[\thispagestyle{plain}%
+%\addtocounter{page}{-1}\vspace*{\fill}\cleardoublepage
+]
+
+
+%\titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter\hsp}{0pt}{\Huge\bfseries\barbox}
+
+%\titleformat{\chapter}[block]{\huge}{\chaptertitlename\ \thechapter:\ }{0pt}{\huge}
+\titleformat{\chapter}{\makeatletter\let\ps@chapter\ps@plain\makeatother
+\Needspace{10\baselineskip}\Huge}{\thechapter.\ }{0pt}{\huge}[\thispagestyle{plain}] %Titoli capitoli senza capitolo XZ:
+
+
+\titleformat{\section}{\Needspace{5\baselineskip}\LARGE}{\thesection: }{0pt}{\LARGE}[]
+
+
+\titleformat{\subsection}[runin]{\LARGE}{\arabic{chapter}.\arabic{section}.\arabic{subsection}}{5pt}{\large\scshape}
+
+
+\titlespacing*{\part}{0pt}{0pt}{0pt}
+\titlespacing*{\chapter}{0pt}{0pt}{0pt}
+\titlespacing{\section}{0pt}{0pt plus 5pt minus 5pt}{0pt plus 5pt minus 5pt}
+\titlespacing{\subsection}{0pt}{*0}{5pt}
+\titlespacing{\subsubsection}{0pt}{*0}{*0}

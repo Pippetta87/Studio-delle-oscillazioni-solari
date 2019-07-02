@@ -1,0 +1,200 @@
+\documentclass[twoside,11pt,fleqn]{memoir}%%% TESI
+%openany
+
+%% rimuove workout errata dalla versione da consegnare
+\def\versione{bozza}%%VERSIONE
+\def\bozza{bozza}
+\def\consegna{consegna}
+%%%PENALITIES
+%\widowpenalty=10000
+%\clubpenalty=10000
+%% colors
+\usepackage[usenames,dvipsnames]{xcolor}
+\definecolor{antiquefuchsia}{rgb}{0.57, 0.36, 0.51}
+\definecolor{violetw}{rgb}{0.93, 0.51, 0.93}
+\definecolor{Veronica}{rgb}{0.63, 0.36, 0.94}
+\definecolor{atomictangerine}{rgb}{1.0, 0.6, 0.4}
+\definecolor{darkgray}{rgb}{0.66, 0.66, 0.66}
+\definecolor{brightcerulean}{rgb}{0.11, 0.67, 0.84}
+\definecolor{cadmiumorange}{rgb}{0.93, 0.53, 0.18}
+\definecolor{ochre}{rgb}{0.8, 0.47, 0.13}
+\definecolor{midnightblue}{rgb}{0.1, 0.1, 0.44}
+\definecolor{grey}{rgb}{0.7, 0.75, 0.71}
+\definecolor{bf}{RGB}{88, 86, 88}
+\definecolor{bb}{RGB}{177, 177, 177}
+%%indice analitico: necessari per printindex
+\usepackage{makeidx}
+\makeindex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% importa pacchetti
+\usepackage{usepkg}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\addtocontents{toc}{\cftpagenumbersoff{part}} %% part senza numero pagina in toc
+%%%%%%%%%%%%%%%%%% titletoc, titlesec setting.
+%%%%%%%%%%%%%%%%%%      pagestyle
+\usepackage{titleT}
+\pagestyle{plain}
+%%%%%%%%%%%%%%%%%% length
+\usepackage{length}
+%%%%%%%%%%%% Hyperref package
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+%%%%%%%%%%%%%%%%%%%%%%%% Things need to be loaded after hyperref
+%\usepackage{cleveref}
+%%%%%%%%%%%%%%%%%Geometry package
+\usepackage[a4paper,lmargin=80px,rmargin=40px,tmargin=40px,bmargin=20px,nofoot,footskip=20px]{geometry}
+%http://tex.stackexchange.com/questions/211248/problem-with-cropmarks-on-geometry-package
+%http://www.ctex.org/documents/packages/layout/geometry.pdf
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Funzioni generali
+\usepackage{functions}
+%http://tex.stackexchange.com/questions/246/when-should-i-use-input-vs-include
+\usepackage{sources}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Funzioni per questo file main
+\usepackage{mathOp}
+\usepackage{LocalF}
+\usepackage{ads}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\raggedbottom %http://tex.stackexchange.com/questions/102084/annoying-paragraph-spacing-issue-with-memoir
+
+%% CAption subcaption figure %%% captionsetup
+%\captionsetup[subfigure]{labelformat}
+    \makeatletter
+    \renewcommand\@memmain@floats{%
+      \counterwithout{figure}{section}
+      \counterwithout{table}{section}
+  \counterwithout{figure}{chapter}
+    \counterwithout{figure}{subfigure}
+      \counterwithout{table}{chapter}
+      \counterwithin{figure}{part}
+      \counterwithin{table}{part}
+	\renewcommand{\thesubfigure}{\arabic{part}-\arabic{figure}.\alph{subfigure}}
+	\renewcommand{\thefigure}{\arabic{part}-\arabic{figure}}
+	\renewcommand{\thetable}{\arabic{part}-\arabic{table}}
+      }
+    \makeatother
+%%%%
+
+%%% SOlve page pre chapter at begginning page without number%@ps
+
+\chapterstyle{plain}
+%%%
+
+\makeatletter
+\newcommand{\titolo}{\@title}
+\makeatother
+
+\author{ }
+\title{Studio delle oscillazioni solari}
+\date{\today}
+
+%%%
+%\outputonly{1}% output in pdf only page number
+
+\begin{document}
+
+%%frontespizio
+
+\begingroup
+
+\thispagestyle{empty}
+\begin{center}
+\Huge Universit\'a di Pisa\\ \vspace{1cm}\textbf{\huge Facolt\'a di Scienze Matematiche Fisiche e Naturali}\\ \vspace{2cm} \textbf{\LARGE Corso di Laurea in Fisica}\\\Large Anno Accademico 2016/2017\\ \vspace{5cm} \LARGE Elaborato Finale\\ \vspace{1cm} \Huge\titolo
+\vspace{9cm}
+
+{
+\centering
+%\hspace*{\fill}
+\begin{minipage}[c]{0.5\textwidth}\centering\Large Candidato\\ \Large Rossi Filippo\end{minipage}\hfill \begin{minipage}[c]{0.5\textwidth}\centering\Large Relatore \\ \Large Prof.sa Scilla Degl'Innocenti\end{minipage}
+%\hspace*{\fill}
+}
+
+\end{center}
+
+%\hspace
+%\frontmatter
+
+\endgroup
+
+\cleartorecto
+
+\pagenumbering{roman}
+
+\tableofcontents*
+
+%\clearpage %%% SOMMARIO
+%\thispagestyle{empty}
+%\subfile{sommario}
+
+%\cleardoublepage
+
+\mainmatter
+
+\pagenumbering{arabic}
+\aliaspagestyle{chapter}{plain}
+
+\cleartorecto
+
+%%Intro
+
+La scienza che studia i modi normali della struttura solare si chiama.
+
+Nella prima parte di questa tesina si descrivono i principi di base del modello solare standard (MSS), gli input fisici necessari per risolvere le equazioni della struttura solare e i vincoli osservativi.
+
+Nella seconda parte si introducono i modi normali della struttura solare dovuti a onde in cui la forza di richiamo \'e la gravit\'a o il gradiente della pressione e si confrontano le caratteristiche dei modi solari con quelle predette dal MSS. I modi osservati hanno natura essenzialmente acustica e periodo intorno a \SI{5}{\minute}
+
+Nella terza parte si mostrano le tecniche che permettono di determinare il profilo radiale delle grandezze di equilibrio, in particolare la velocit\'a del suono. Inoltre si mostra come l'eliosismologia imponga vincoli stringenti alle caratteristiche del MSS.
+
+{\let\clearpage\relax\let\cleardoublepage\relax
+\part{Il modello solare standard. Importanza osservabili sismologiche.}
+}
+
+\subfile{SSM}
+
+\cleartorecto
+\part{Oscillazioni della fotosfera con grande coerenza spaziale e temporale: modi normali di cavit\'a risonanti dell'interno solare.}
+
+\subfile{oscillation}
+
+\cleartorecto
+%\part{Problema inverso e accuratezza parametri del modello solare.}
+\part{Accuratezza del modello solare tramite confronto con osservabili sismologiche.}
+
+\subfile{inversion}
+
+\cleartorecto
+{\let\clearpage\relax\let\cleardoublepage\relax
+\part{Conclusioni}
+}
+
+Ho mostrato che il gran numero di modi di oscillazione osservabili, per la maggior parte acustici, e la grande accuratezza nella misura delle frequenze permettono di costruire modelli solari pi\'u accurati sia per quanto riguarda i processi fisici rilevanti nel Sole sia per quanto riguarda la modellizzazione del plasma solare.
+
+Ho illustrato alcune tecniche che sono state usate per ottenere informazioni sulla struttura interna del Sole, in particolare le tecniche di inversione non asintotica permettono di ricavare correzioni al modello solare sulla base delle differenze tra frequenze dei modi solari e calcolate sulla base del modello.
+
+Tramite queste ultime si determina che modelli costruiti usando una composizione fotosferica attuale pi\'u accurata (AGSS09) danno un peggior accordo con il profilo radiale della velocit\'a del suono solare: questo pu\'o indicare che l'opacit\'a del modello \'e deficitaria.
+
+
+{\let\clearpage\relax\let\cleardoublepage\relax
+\backmatter
+}
+
+%\newgeometry{margin=60px,tmargin=20px}%%APPENDICE
+%\appendix
+%\part{Appendice}
+%\subfile{appendix}
+%\restoregeometry
+\printbibliography
+%\listoffigures
+
+
+\ifx\versione\bozza
+\woc
+\erratac
+\fi
+
+\end{document}

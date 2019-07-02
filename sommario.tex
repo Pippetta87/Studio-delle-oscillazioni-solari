@@ -1,0 +1,40 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\begin{abstract}
+
+Il Sole \'e una massa di gas autogravitante in cui sono osservabili numerosissimi modi di oscillazione dovuti a perturbazioni dello stato di equilibrio: si distingue la parte a basse frequenze dello spettro con i modi g, in cui la forza di richiamo \'e la forza di gravit\'a e la parte ad alte frequenze con i modi p, in cui la forza di richiamo \'e il gradiente della pressione. Il loro studio fornisce uno strumento per determinare caratteristiche essenziali della struttura solare.
+
+La rivelazione dei moti periodici della fotosfera solare (oscillazione dei 5 minuti: \cite{lei62velocity}) e la scoperta, in misure in cui la superficie solare \'e risolta spazialmente (\cite{deu75observations}) e in misure integrate sull'intero disco solare (\cite{cla79solar}), che tali moti periodici sono la sovrapposizione di modi discreti, sono le basi osservative dell'eliosismologia: quest'ultima studia le oscillazioni della superficie solare e le informazioni sulla struttura interna in esse contenuta (stratificazione e dinamica delle regioni in cui l'ampiezza di oscillazione \'e apprezzabile).
+
+In questo elaborato descrivo brevemente le osservazioni relative  alle oscillazioni con periodo 5 minuti e la loro struttura modale, che sar\'a giustificata tramite il modello proposto da \citet{ulrich70five} e \citet*{stein71five}, quindi descrivo le tecniche di analisi del campo di velocit\'a della superficie solare.
+
+Discuto poi molto brevemente la fisica e le equazioni che determinano la struttura stellare e la sua evoluzione, considerando anche le problematiche generali che riguardano la costruzione di un modello solare con particolare riferimento alla determinazione dell'abbondanza iniziale di $\chem{^4He}$ e dell'efficienza del trasporto convettivo nelle regioni esterne.
+
+Lo scopo principale di questa tesi \'e una descrizione teorica dei modi di oscillazione del Sole. Considerando le piccole ampiezze e il periodo, molto minore dei tempi caratteristici di scambio termico solari, introduco perturbazioni lineari adiabatiche attorno allo stato di equilibrio idrostatico. La dipendenza temporale delle perturbazioni di densit\'a, pressione ed energia potenziale gravitazionale \'e generalmente descritta tramite una pulsazione $\omega$ mentre per la dipendenza spaziale si utilizzano ampiezza radiale e le armoniche sferiche $Y_{lm}(\theta,\phi)$. Ottengo le equazioni che determinano i modi di oscillazione discreti ordinati, per l fissato, tramite l'ordine n, crescente con frequenza e numero di nodi radiali; questi dipendono dalle grandezze di equilibrio, generalmente si considera il profilo radiale delle grandezze indipendenti velocit\'a del suono e densit\'a.
+
+Considero le equazioni delle oscillazioni trascurando la perturbazione del potenziale gravitazionale e ricavo la relazione di dispersione per un'onda piana; nel limite di alte e basse frequenze, la relazione di dispersione trovata sia riduce a quella delle onde acustiche e di gravit\'a. Determino le regioni di propagazione dei modi g e p e giustifico la legge di Duvall, che esprime la condizione di onda stazionaria in direzione radiale.
+
+La soluzione numerica delle equazioni delle oscillazioni esatte \'e limitata dall'accuratezza del modello solare usato quindi il confronto fra frequenze osservate e calcolate al variare dei parametri del modello solare discrimina l'accuratezza del modello.
+
+Infine mostro come ricavare informazioni sull'interno solare dalle frequenze osservate: principalmente il profilo radiale della velocit\'a del suono e della densit\'a, l'abbondanza di $\chem{^4He}$ superficiale e la profondit\'a della zona convettiva. Ho inizialmente ricavato il profilo radiale della velocit\'a del suono in maniera indipendente dal modello tramite l'inversione analitica della legge di Duvall, afflitta da errori sistematici che \'e possibile mitigare considerando le differenze tra frequenze calcolate tramite un modello e osservate. Ho poi descritto le tecniche che permettono di ottenere correzioni alle variabili fisiche del modello utilizzando l'equazione esatta del moto perturbato in forma variazionale: considerate le incertezze relative alle frequenze osservate e alla procedura di inversione ottengo gli intervalli delle variabili fisiche compatibili con le frequenze osservate.
+
+
+\begin{comment}
+In seguito alla comprensione della struttura spettrale delle oscillazioni solari sono state identificate altre stelle che mostrano oscillazioni con analoga struttura.
+le frequenze di oscillazione attese sulla base di un modello stellare e al variare di uno o pi\'u parametri del modello analizzare la corrispondenza con quelle osservate. La soluzione del problema inverso permette, tramite un'osservazione accurata delle frequenze solari, di ricavare correzioni al modello solare e limitare il range dei parametri del modello.
+Accenner\'o brevemente alle tecniche osservative ed alle problematiche legate alla precisione richiesta dalle osservazioni eliosismologiche.
+Ricavo il sistema di equazioni differenziali che descrive le perturbazioni adiabatiche e scrivo la relazione di dispersione nella forma pi\'u generale. Da calcoli accurati risulta che i modi p sono confinati nella parte esterna della zona convettiva.
+Introduco quindi i modi normali per il moto ondoso. Suppongo che le grandezze fisiche che determinano il problema dipendano solo dalla distanza dal centro, \'e quindi naturale descrivere l'ampiezza delle perturbazioni in termini di armoniche sferiche per la dipendenza angolare che sono identificate dalla distribuzione caratteristica delle fasi di oscillazione sulla superficie solare. Queste definiscono il grado l del modo normale; le autofunzioni dell'ampiezza dell'oscillazione radiale sono caratterizzate dall'indice n, il cui modulo riflette il numero di zeri dell'ampiezza radiale.
+La piccola ampiezza delle oscillazioni permette di usare la teoria delle perturbazioni lineari applicata alle equazioni di un un corpo autogravitante in equilibrio idrostatico per ricavare attraverso l'equazione del moto (equazione di Eulero) un'equazione agli autovalori per le frequenze di pulsazione. Questo tipo di problema \'e comune in fisica teorica quindi esistono molte tecniche numeriche per determinare le frequenze con l'accuratezza necessaria per il confronto con i dati sperimentali ma non tratter\'o questa problematica; descrivo il comportamento asintotico per alte/basse frequenze delle oscillazioni adiabatiche trascurando la perturbazione del potenziale gravitazionale.
+I risultati eliosismologici dimostrano la validit\'a dei modelli solari standard di cui descrivo le caratteristiche fondamentali; di particolare importanza \'e la  misura  dell'abbondanza di elio nel Sole, valore che nei modelli solari standard viene variato, insieme al parametro che regola l'efficienza del trasporto energetico nella zona convettiva, per ottenere, determinando numericamente l'evoluzione del modello iniziale, i giusti valori di luminosit\'a e raggio attuali.
+Le frequenze dei modi normali dell'interno solare contengono informazioni sul profilo radiale della velocit\'a del suono, densit\'a, accelerazione di gravit\'a ed esponente adiabatico $\Gamma_1$:
+Infine mostro come l'inversione eliosismologica fornisca una guida per individuare le zone in cui il modello solare appare non completamente corretto.
+\end{comment}
+
+
+\end{abstract}
+
+
+\end{document}

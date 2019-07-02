@@ -1,0 +1,83 @@
+\ProvidesPackage{LocalF}
+
+\newcommand{\canrel}[2]{%
+\par\medskip\noindent
+\makebox[\textwidth][s]{\rlap{#1}\hfill%#2\hfill
+\llap{\texttt{#2}}}%
+\par\medskip}
+
+\renewenvironment{abstract} %%%% Abstract personalization
+ {\small
+  \begin{center}
+  \bfseries \abstractname\vspace{-.5em}\vspace{0pt}
+  \end{center}
+  \list{}{%
+    \setlength{\leftmargin}{-0mm}% <---------- CHANGE HERE
+    \setlength{\rightmargin}{\leftmargin}%
+  }%
+  \item\relax}
+ {\endlist}
+ 
+\ifx \versione\bozza%%ERRATA
+\newcommand{\listerrataname}{List of errata}
+\newlistof{erratac%counter
+}{erratal%extension
+}{\listerrataname}
+\newcommand\adderratacontent[1]{%
+\addcontentsline{erratal}{chapter}%
+{#1}
+}
+
+\newcounter{erratac}
+\def\thewoc{(\arabic{erratac})}
+\newenvironment{errata}[1][ ]%%%% errata
+{\refstepcounter{erratac}\adderratacontent{#1}%
+\begingroup {(\theerratac): #1} \\
+\color{grey}
+}{\hspace*{\textwidth}\\\noindent\rule{0.5\textwidth}{0.4pt}\\\endgroup\\}
+
+\else
+
+\newenvironment{errata}[1][ ]%%%% errata
+{\comment}{\endcomment}
+\fi
+
+\ifx \versione\bozza%%WORKOUT
+\newcommand{\listworkoutname}{List of Workout}
+\newlistof{woc%counter
+}{wol%extension
+}{\listworkoutname}
+\newcommand\addwocontent[1]{%
+\addcontentsline{wol}{chapter}%
+{#1}
+}
+
+\newcounter{woc}
+\def\thewoc{(\arabic{woc})}
+\newenvironment{workout}[1][ ]%%%% workout
+{\refstepcounter{woc}\addwocontent{#1}%
+\begingroup {\thewoc: #1} \\
+\color{midnightblue}
+}{\hspace*{\textwidth}\\\noindent\rule{0.5\textwidth}{0.4pt}\endgroup\\}
+
+\else
+
+\newenvironment{workout}[1][ ]%%%% workout
+{\comment}{\endcomment}
+\fi
+
+\renewcommand\cftappendixname{\appendixname~} %% Appendix ???
+
+\newcommand{\intxt}[1]{&\intertext{#1}\nonumber\\[\mathalignskip\normalbaselineskip]}
+
+\renewcommand{\thesubfigure}{\arabic{figure}.\arabic{subfigure}}
+
+\newcommand*\chem[1]{\ensuremath{\mathrm{#1}}}
+
+\renewcommand{\theequation}{\thechapter.\arabic{equation}}   %%% Modo numerazione equazioni
+\newcommand{\Exp}[1]{\text{exp}\{#1\}}
+
+\newcommand{\mss}{modello solare standard}
+\newcommand{\intmy}[1]{\intertext{\noindent{#1}\vspace{-2pt}\noindent}}
+
+\newcommand{\setmuskip}[2]{#1=#2\relax} %%proble usinig mu with calc (req by mathtools) loaded

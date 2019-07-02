@@ -1,0 +1,106 @@
+\setmuskip{\thinmuskip}{0mu}\setmuskip{\medmuskip}{0mu}
+\tikzset{->-/.style={decoration={
+  markings,
+  mark=at position .5 with {\arrow{>}}},postaction={decorate}},
+-->/.style={decoration={
+  markings,
+  mark=at position .8 with {\arrow{>}}},postaction={decorate}},
+box/.style={%
+%draw,
+minimum width=25mm,%
+    minimum height=6mm,%
+    align=center}
+}
+
+\begin{tikzpicture}
+
+\begin{scope}[local bounding box=astrofactor,scale=0.5,transform shape,every node/.style={scale=0.6}]
+\matrix[matrix of nodes,column sep={60pt,between origins},row
+    sep={15pt,between origins}] (s)
+  {
+Reazione &  $S(0) (keVb)$ & \parbox{2cm}{\centering Incertezza su $S(E_G) (\%)$}\\
+$p(p,\APelectron\Pnue)d$ & $(4.01 \pm 0.04)10^{-22}$ & $\pm 0.7$\\
+$d(p,\Pphoton)\cel{He}{3}{}{}$ & ${2.14}10^{-4}\substack{+0.17 \\ -0.16}$ & $\pm 7.1$\\
+$\cel{He}{3}{}{}(\cel{He}{3}{}{},2p)\cel{He}{4}{}{}$ & $(5.21 \pm 0.27)10^{-3}$ & $\pm 4.3$\\
+$\cel{He}{3}{}{}(\cel{He}{4}{}{},\Pphoton)\cel{Be}{7}{}{}$ & $0.56 \pm 0.03$ & $\pm 5.1$\\
+$\cel{He}{3}{}{}(p,\APelectron\Pnue)\cel{He}{4}{}{}$ & $(8.6 \pm 2.6)10^{-20}$ & $\pm 30$\\
+$\cel{Be}{7}{}{}(\Pelectron,\Pnue)\cel{Li}{7}{}{}{\ }^{I}$ & $ $  & $\pm 2.0$\\
+$p(p\Pelectron,\Pnue)d{\ }^{II}$& $ $ & $\pm 1.0$\\
+$\cel{Be}{7}{}{}(p,\Pphoton)\cel{B}{8}{}{}$& $(2.08 \pm 0.16)10^{-2}$ & $\pm 7.5$\\
+%14N(p,7)150 XI.A 1.66 \pm 0.12 (-3.3 \pm 0.2) x 10-3 b (4.4 \pm 0.3) x 10-5 a \pm 7.2
+  };
+\draw[]({$(s-1-1)!.5!(s-1-2)$} |- s.north) -- ({$(s-1-1)!.5!(s-1-2)$} |- s.south);
+\draw[]({$(s-1-2)!.5!(s-1-3)$} |- s.north) -- ({$(s-1-2)!.5!(s-1-3)$} |- s.south);
+\node[fit=(s-1-1.south) (s-1-2.south) (s-1-3.south),inner sep=0pt] (R2) {};
+\draw[] (R2.south -| s.west) -- (R2.south -| s.east);
+ \end{scope}
+ 
+\node (pep) at ($(s.south)+(47mm,-6mm)$) {\parbox{\textwidth}{\begin{equation*}\begin{split}\scriptscriptstyle I: R(\cel{Be}{7}{}{}(e^-,\Pnue)\cel{Li}{7}{}{})=&\scriptscriptstyle5.6(1\pm0.02)10^{-9}\midfrac{\rho}{\mu_e}T_6\expy{-1/2}\\
+&\scriptscriptstyle[1+0.004(T_6-16)]\si{\per\second}\end{split}\end{equation*}}};
+\node[below=0.1mm of pep] (ec) {\parbox{\textwidth}{\begin{equation*}\begin{split}\scriptscriptstyle II: R(pe^-p)=&\scriptscriptstyle1.102(1\pm0.01)10^{-4}\midfrac{\rho}{\mu_e}T_6\expy{-1/2}\\
+&\scriptscriptstyle[1+0.002(T_6-16)]R(pp)\end{split}
+\end{equation*}}};
+ 
+\node at ($(ec.south)+(-50mm,-1mm)$) (captions) {\parbox{0.35\textwidth}{\captionof{figure}{Fattore astrofisico reazioni catena PP. Da \cite{adelberger2011solar}.}}};
+
+\begin{scope}[local bounding box=ppchain,shift={($(astrofactor.east)+(15mm,+10mm)$)},scale=0.8,transform shape]
+\node[box] (pp) at (0,0) {$\Pproton{+}\Pproton{\to}\cel{H}{2}{}{}{+}\Pnue{+}\APelectron$};%%pp
+\node[box,right=2cm of pp]  (pep) {$\Pproton{+}\Pproton{+}\Pelectron{\to}\cel{H}{2}{}{}+\Pnue$};%%pep
+\coordinate[below=0.3cm of pp] (bpp);
+\node[left] at (bpp) {$99.76\%$};
+\coordinate[below=0.3cm of pep] (bpep);
+\node[right] at (bpep) {$0.24\%$};
+
+\coordinate[] (ttriton) at ($(bpp)!0.5!(bpep)$);
+\draw[->-] (pp)--(bpp)--(ttriton);
+\draw[->-] (pep)--(bpep)--(ttriton);
+\node[box,below=0.3cm of ttriton] (triton) {$\Pproton+\cel{H}{2}{}{}\to\cel{He}{3}{}{}+\Pphoton$};%%triton
+\coordinate[below=0.3cm of triton] (btriton);
+\draw[-->] (ttriton)--(triton.north);
+\draw[->-] (triton.south)--(btriton.north);
+\coordinate[left=2.5cm of btriton] (tpp1);
+\node[left] at (tpp1) {$83.3\%$};
+\coordinate[right=2.0cm of btriton] (tberillium7);
+\node[above] at (tberillium7) {$16.7\%$};
+\coordinate[right=6.5cm of btriton] (thep);
+\node[right] at (thep) {$\num{2e-5}\%$};
+
+\draw[] (btriton)--(tpp1);
+\draw[] (btriton)--(tberillium7);
+\draw[] (tberillium7)--(thep);
+\node[box,below=0.5cm of tpp1,label={[xshift=0.1cm, yshift=-1.5cm]PPI}]  (pp1) {$\cel{He}{3}{}{}+\cel{He}{3}{}{}\to\cel{He}{4}{}{}+2\Pproton$};%%pp1
+\node[box,below=0.5cm of tberillium7]  (berillium7) {$\cel{He}{3}{}{}+\cel{He}{4}{}{}\to\cel{Be}{7}{}{}+\Pphoton$};%%berillium7
+\node[box,below=0.5cm of thep,label={[xshift=-0.1cm, yshift=-1.5cm]HEP}]  (hep) {$\cel{He}{3}{}{}+\Pproton\to\cel{He}{4}{}{}+\APelectron+\Pnue$};%%hep
+
+\draw[->-] (tpp1)--(pp1.north);
+\draw[->-] (tberillium7)--(berillium7.north);
+\draw[-->] (thep)--(hep.north);
+
+\coordinate[below=0.3cm of berillium7] (bberillium7);
+\coordinate[left=1.5cm of bberillium7] (tlithium7);
+\node[left] at (tlithium7) {$99.88\%$};
+\coordinate[right=2.0cm of bberillium7] (tboron8);
+\node[right] at (tboron8) {$0.12\%$};
+
+\node[box,below=0.5cm of tlithium7]  (li7) {$\cel{Be}{7}{}{}+\Pelectron\to\cel{Li}{7}{}{}+\Pnue$};%%Li7
+\node[box,below=0.5cm of li7,label={[xshift=0.1cm, yshift=-1.5cm]PPII}] (pp2) {$\cel{Li}{7}{}{}+\Pproton\to2\cel{He}{4}{}{}$};%% PP2
+
+\node[box,below=0.5cm of tboron8]  (b8) {$\cel{Be}{7}{}{}+\Pproton\to\cel{B}{8}{}{}+\Pphoton$};%%B8
+\node[box,below=0.25cm of b8]  (be7) {$\cel{B}{8}{}{}\to\cel{Be}{8}{}{}^*+\APelectron+\Pnue$};%%Be8*
+\node[box,below=0.25cm of be7,label={[xshift=0.1cm, yshift=-1.5cm]PPIII}]  (pp3) {$\cel{Be}{8}{}{}^*\to2\cel{He}{4}{}{}$};%%pp3
+
+\draw[->-] (berillium7.south)--(bberillium7);
+\draw[] (bberillium7)--(tlithium7);
+\draw[] (bberillium7)--(tboron8);
+
+\draw[->-] (tlithium7)--(li7.north);
+\draw[->-] (li7.south)--(pp2.north);
+
+\draw[->-] (tboron8.south)--(b8.north);
+\draw[->-] (b8.south)--(be7.north);
+\draw[->-] (be7.south)--(pp3.north);
+\end{scope}
+
+\node[anchor=north west]  at ($(ppchain.south)+(-50mm,-1mm)$) {\parbox{0.5\textwidth}{\captionof{figure}{Reazioni catena PP: terminazioni per temperature caratteristiche del centro solare. Da \cite{adelberger2011solar}.}}};
+
+\end{tikzpicture}
