@@ -175,11 +175,13 @@ La prima legge della termodinamica esprime la conservazione dell'energia interna
 \TDy{t}{q}=\TDy{t}{u}+P\TDof{t}(\frac{1}{\rho})\label{eq:prima}
 %\TDy{t}{u}+P\TDy{t}{V}
 \end{equation}
+\begin{errata}{Identit\'a soddisfatte da esponenti adiabatici non prima equazione termodinamica riscritta in altro modo}
 che posso riscrivere come
 \begin{align}
 &\TDy{t}{\ln{T}}=\frac{\Gamma_2-1}{\Gamma_2}\TDy{t}{\ln{P}}+\frac{\TDy{t}{q}}{c_PT}\label{eq:primatemp}\\
 &\TDy{t}{\ln{P}}=\Gamma_1\TDy{t}{\ln{\rho}}+\frac{\rho(\Gamma_3-1)}{P}\TDy{t}{q}\label{eq:primapres}
 \end{align}
+\end{errata}
 dove ho introdotto gli esponenti adiabatici $\Gamma_i$
 \begin{equation}\label{eq:adibatexp}
 \Gamma_1=\Dcvar{\TDly{\rho}{P}}{Ad}, \ \Gamma_3-1=\Dcvar{\TDly{\rho}{T}}{Ad},\ \frac{\Gamma_2-1}{\Gamma_2}=\Dcvar{\TDly{P}{T}}{Ad}
@@ -632,7 +634,6 @@ Come illustrato in figura (\subref{fig:gamma1eos}), per entrambe $\Gamma_1\appro
 Per stimare l'accuratezza dell'equazione di stato considero la differenza di pressione calcolata usando l'equazione di stato OPAL e MHD (da \cite{trampedach2006synoptic}):
 
 $\midfrac{\Delta P}{P}\leq1\%$  per $\frac{r}{\rsun{}}\geq0.9$ e $\midfrac{\Delta P}{P}\leq2\permille$ per $\frac{r}{\rsun{}}\leq0.9$, mentre $\midfrac{\Delta \Gamma_1}{\Gamma_1}\leq1\%$  per $\frac{r}{\rsun{}}\geq0.9$ e $\midfrac{\Delta \Gamma_1}{\Gamma_1}\leq1\permille$ per $\frac{r}{\rsun{}}\leq0.9$.
-
 
 \section{Interazioni fotoni-materia: opacit\'a.}
 
